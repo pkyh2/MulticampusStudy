@@ -16,9 +16,5 @@ for t in range(T):
 T = int(input())
 for t in range(T):
     numbers = [int(x) for x in input().split() if int(x) % 2 != 0]
-    '''
-    input()을 받고 공백을 기준으로 split하여 ["1 2 3 4"] -> ["1", "2", "3", "4"]
-    나온 x를 int(x) 로 변환해준다. [1,2,3,4]
-    '''
     result = sum(numbers)
     print('#{} {}'.format(t+1, result))

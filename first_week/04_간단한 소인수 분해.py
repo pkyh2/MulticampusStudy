@@ -5,7 +5,6 @@ N이 주어질때 a, b, c, d, e를 출력하시오.
 '''
 
 T = int(input())
-
 def primeFactorization(n, list1):
     if n % 2 == 0:
         list1[0] += 1
