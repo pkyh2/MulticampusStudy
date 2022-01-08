@@ -1,8 +1,9 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
 
 N = int(input())
-stack = []
+stack = deque([])
 for _ in range(N):
     comment = list(input().split())
     if comment[0] == 'push':
@@ -12,7 +13,7 @@ for _ in range(N):
             print(-1)
         else:
             print(stack[0])
-            stack = stack[1:]
+            stack.popleft()
     elif comment[0] == 'size':
         print(len(stack))
     elif comment[0] == 'empty':
