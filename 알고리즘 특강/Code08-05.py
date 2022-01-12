@@ -49,7 +49,8 @@ for name in nameAry[1:]: # 2번째 원소부터 마지막 원소까지 반복해
         
 
     memory.append(node)
-
+for i in range(len(memory)):
+    print(memory[i].data, end=' ')
 print('이진 탐색 트리 구성 완료')
 
 # 이진탐색트리의 활용(검색)
