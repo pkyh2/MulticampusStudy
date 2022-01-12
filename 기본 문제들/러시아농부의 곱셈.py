@@ -19,6 +19,6 @@ print(pair)
 result = 0
 for i in pair:
     if i[0] % 2 == 1:
-        result += sum(i)
+        result += i[1]
 
 print(result)
