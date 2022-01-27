@@ -6,7 +6,7 @@
 2 - 28
 '''
 
-# 
+# 5 5 8 15
 T = int(input())
 for t in range(T):
     month1, day1, month2, day2 = map(int, input().split())
@@ -23,7 +23,7 @@ for t in range(T):
             cnt = 31 - day1
 
         month1 += 1
-        while month1 <= month2:
+        while month1 <= month2:     # 5 5 8 15
             if month1 == month2:
                 cnt += day2 + 1
             else:

@@ -1,7 +1,7 @@
 T = int(input())
 
 for t in range(T):
-    N, K = map(int, input().split())
+    N, K = map(int, input().split())    # 5, 3
     board = [input().split() for _ in range(N)]
     result = 0
 
@@ -11,7 +11,7 @@ for t in range(T):
         for x in range(N):
             if board[y][x] == '1':
                 cnt += 1
-                if cnt == K:
+                if cnt == K:    # K: 3
                     result += 1
                 elif cnt == K+1:
                     result -= 1
