@@ -11,7 +11,7 @@ for t in range(T):
             elif x == y:
                 pascal[y][x] = 1
             elif y > x:
-                pascal[y][x] = pascal[y-1][x-1] + pascal[y-1][x]
+                pascal[y][x] = pascal[y-1][x-1] + pascal[y-1][x]    # 2, 1 = pascal[1][0] + pascal[1][1]
 
     print('#{}'.format(t+1))
     for i in range(N):

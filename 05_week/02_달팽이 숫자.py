@@ -10,7 +10,7 @@ for t in range(T):
     x, y, index = -1, 0, 0 
     cnt = 1
 
-    for i in range(N*N):
+    for i in range(N*N):    # N:4 x:0~3, y:0~3
         if direction[index] == "R":
             x += 1
             if x >= N or board[y][x] != 0:

@@ -4,16 +4,16 @@ for t in range(T):
     N = int(input())
     numMatrix = [input().replace(' ', '') for _ in range(N)]
 
-    angle_270 = []
     angle_90 = []
     angle_180 = []
+    angle_270 = []
 
     for i in range(N):
         str_90 = ''
         str_270 = ''
         for j in range(N):
-            str_90 += numMatrix[N-1-j][i]
-            str_270 += numMatrix[j][N-1-i]
+            str_90 += numMatrix[N-1-j][i]       # [3-1-j][0] 741
+            str_270 += numMatrix[j][N-1-i]      # [j][N-1-i] 369
         angle_90.append(str_90)
         angle_270.append(str_270)
         
