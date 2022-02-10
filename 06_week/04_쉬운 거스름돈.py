@@ -14,7 +14,7 @@ for t in range(T):
     }
 
     for money in moneyCount.keys():
-        moneyCount[money] = N // money
+        moneyCount[money] = N // money  # 32850
         N -= money * moneyCount[money]
     
     print('#{}'.format(t+1))

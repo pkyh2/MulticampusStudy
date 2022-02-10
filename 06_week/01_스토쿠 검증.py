@@ -18,8 +18,8 @@ for t in range(T):
         for j in range(3):
             box = []
             for k in range(3):
-                box += sudoku[i+k][j*3:(j*3)+3]
-            if set(box) != from1to9:
+                box += sudoku[i+k][j*3:(j*3)+3]     # [0+0][0*3:(0*3)+3] -> [7, 3, 6]
+            if set(box) != from1to9:                # [0+1][0*3:(0*3)+3] -> [5, 8, 9]   
                 check = 0
 
     print('#{} {}'.format(t+1, check))
