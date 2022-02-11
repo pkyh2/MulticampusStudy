@@ -11,12 +11,7 @@ for t in range(T):
             if len(alZip[idx]) == 10:
                 idx += 1
 
-
-            # if len(alZip[n]) == 10:
-            #     alZip[n+1].append(Ci)
-
     print('#{}'.format(t+1))
     for i in alZip:
         if i:
-            print(''.join(i)) 
-
+            print(''.join(i))
