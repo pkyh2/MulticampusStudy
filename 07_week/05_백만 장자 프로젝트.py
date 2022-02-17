@@ -3,30 +3,30 @@
 하루에 최대 1만큼 구입
 '''
 
-# T = int(input())
+T = int(input())
 
-# def exchange(saleprice, profit):
-#     sum, cnt = 0, 0
-#     maxIdx = saleprice.index(max(saleprice))+1
-#     for i in range(maxIdx):
-#         if i == maxIdx-1:
-#             profit += (saleprice[i] * cnt) - sum
-#             if i == len(saleprice) - 1:
-#                 return profit
-#             else:
-#                 return exchange(saleprice[i+1:], profit)
-#         else:
-#             sum += saleprice[i]
-#             cnt += 1
-#     if profit == 0:
-#         return profit
+def exchange(saleprice, profit):
+    sum, cnt = 0, 0
+    maxIdx = saleprice.index(max(saleprice))+1      # 최댓값의 위치
+    for i in range(maxIdx):                         # 그 위치까지 반복
+        if i == maxIdx-1:                           # 최댓값 index일때
+            profit += (saleprice[i] * cnt) - sum
+            if i == len(saleprice) - 1:
+                return profit
+            else:
+                return exchange(saleprice[i+1:], profit)
+        else:
+            sum += saleprice[i]                     # 최댓값이 나오기 전까지 값들을 더한다. 
+            cnt += 1
+    if profit == 0:
+        return profit
 
-# for t in range(T):
-#     N = int(input())
-#     salePrice = list(map(int, input().split()))
-#     profit = 0
+for t in range(T):
+    N = int(input())
+    salePrice = list(map(int, input().split()))
+    profit = 0
     
-#     print('#{} {}'.format(t+1, exchange(salePrice, profit)))
+    print('#{} {}'.format(t+1, exchange(salePrice, profit)))
 # 시간초과 ㅜㅜ
 
 T = int(input())
