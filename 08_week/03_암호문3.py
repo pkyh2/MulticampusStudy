@@ -23,8 +23,8 @@ for t in range(10):
     cmdCnt = int(input())       # 명령어 개수
     cmd = list(input().split()) # 명령어
 
-    temp = []
-    cnt = 0
+    temp = []                   # 명령어 저장
+
     for i in cmd:
         if i in ['I', 'A', 'D'] and len(temp) > 1:
             process(temp)       # i == 'A' 일때 temp = ['I', '3186', '6', '111702', '108909', '437791', '460849', '808743', '573893']

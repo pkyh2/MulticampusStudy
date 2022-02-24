@@ -7,7 +7,7 @@
 for i in range(10):
     T = int(input())
     nums = list(map(int, input().split()))
-    while nums[len(nums)-1] > 0:
+    while nums[len(nums)-1] > 0:            # 맨마지막 숫자가 0보다 클때까지
         for j in range(1, 6):
             if nums[0]-j > 0:
                 temp = nums.pop(0)-j
