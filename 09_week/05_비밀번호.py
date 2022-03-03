@@ -1,5 +1,5 @@
-def pwCheck(list):
-    for i in range(1, len(list)):
+def pwCheck(list):                  # 1234
+    for i in range(1, len(list)):   # 123884
         if list[i-1] == list[i]:
             list.pop(i-1)
             list.pop(i-1)
@@ -11,10 +11,10 @@ def pwCheck(list):
 
     return pwCheck(list)
     
-for t in range(1):
+for t in range(10):
     leng, pw = map(str, input().split())
     pw = list(map(int, pw))    # str는 pop을 못해서 int형으로 변경
-
+    #[1, 2, 3, 4, ...]
     result = pwCheck(pw)
 
     print('#{}'.format(t+1), end=' ')
