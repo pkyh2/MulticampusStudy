@@ -5,8 +5,8 @@
 T = int(input())
 for t in range(T):
     p, q = map(float, input().split())
-    s1 = 1*(1-p)*q
-    s2 = 1*p*(1-q)*q
+    s1 = 1*(1-p)*q      # 맨처음에 잘못
+    s2 = 1*p*(1-q)*q    # 처음에 잘 함
     if s1<s2:
         print('#{} {}'.format(t+1, 'YES'))
     else:
