@@ -11,15 +11,15 @@ def n_queens(x):
         result += 1
     else:
         for i in range(N):  # 각 열 개수 만큼 반복
-            col[x] = i
-            if promising(x):
-                n_queens(x + 1)
+            col[x] = i      # x -> 행, i -> 열
+            if promising(x):        # 올바른 자리면
+                n_queens(x + 1)     # 다음 행으로
 
 T = int(input())
 
 for t in range(T):
     N = int(input())
-    col = [0] * N
+    col = [0] * N       # [0, 0, 0, 0]  index: 0, 1, 2, 3
     result = 0
     n_queens(0)
 
