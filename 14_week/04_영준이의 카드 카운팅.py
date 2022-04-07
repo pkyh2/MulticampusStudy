@@ -8,8 +8,8 @@ for t in range(T):
     cardInfo = input()
     deck = [[] for _ in range(4)]
     flag = 0
-    for i in range(0, len(cardInfo), 3):
-        cardNum = cardInfo[i+1:i+3]
+    for i in range(0, len(cardInfo), 3):    # 무늬별로 i == 'S'
+        cardNum = cardInfo[i+1:i+3]         # i+1:i+3 == '01'
         if cardInfo[i] == 'S':
             if cardNum in deck[0]:
                 print('#{} {}'.format(t+1, "ERROR"))

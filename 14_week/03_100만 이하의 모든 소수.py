@@ -1,16 +1,16 @@
-# range = 1000000
-# import math
-# num = 1000000
+range = 1000000
+import math
+num = 1000000
 
-# for i in range(num):
-#     cnt = 0
-#     if i > 1:
-#         for j in range(2, int(math.sqrt(i))+1):
-#             if i % j == 0:
-#                 cnt += 1
-#         if cnt == 0:
-#             print(i, end=' ')
-# 시간초과
+for i in range(num):
+    cnt = 0
+    if i > 1:
+        for j in range(2, int(math.sqrt(i))+1):
+            if i % j == 0:
+                cnt += 1
+        if cnt == 0:
+            print(i, end=' ')
+#시간초과
 
 # 에라토스테네스의 체
 import math

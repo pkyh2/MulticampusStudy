@@ -2,23 +2,24 @@
 칼로리는 L을 넘지않고, 맛 점수가 가장 높은 조합을 찾아라.
 '''
 # 조합
-# from itertools import combinations
+from itertools import combinations
 
-# T = int(input())
+T = int(input())
 
-# for t in range(T):
-#     N, L = map(int, input().split())
-#     combi = {}
-#     for _ in range(N):
-#         T, K = map(int, input().split())
-#         combi[T] = K
-#     result = set()
-#     for i in range(1, N+1): # 1부터 N까지의 조합에서
-#         for j in set(combinations(combi.items(), i)):
-#             if sum(map(lambda x: x[1], j)) <= L:
-#                 result.add(sum(map(lambda x: x[0], j)))
+for t in range(T):
+    N, L = map(int, input().split())
+    combi = {}
+    for _ in range(N):
+        T, K = map(int, input().split())
+        combi[T] = K
+    result = set()
+    for i in range(1, N+1): # 1부터 N까지의 조합에서
+        for j in set(combinations(combi.items(), i)):   # i==3, ((300, 500), (250, 300), (400, 400))
+            if sum(map(lambda x: x[1], j)) <= L:
+                result.add(sum(map(lambda x: x[0], j)))
     
-#     print('#{} {}'.format(t+1, max(result)))
+    print('#{} {}'.format(t+1, max(result)))
+
 
 T = int(input())
 
