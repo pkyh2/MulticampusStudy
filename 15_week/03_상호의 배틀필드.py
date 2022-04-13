@@ -21,40 +21,120 @@ T = int(input())
 
 for t in range(T):
     H, W = map(int, input().split())
-    map = [[] for _ in range(H)]
+    _map = []*H
     for i in range(H):
-        map[i].append(input())
+        _map.append(list(input()))
     commandLen = int(input())
     command = input()
 
-    for i in range(len(map)):
-        for j in range(len(map[i])):
-            if map[i][j] in ['^', 'v', '<', '>']:
-                tPos = (i, j)
-                tank = map[i][j]
+    for cmd in command:
 
-    for i in command:
-        if i == 'S':
+        for i in range(len(_map)):
+            for j in range(len(_map[i])):
+                if _map[i][j] in ['^', 'v', '<', '>']:
+                    tPos = (i, j)
+                    tank = _map[i][j]
+
+        if cmd == 'S':
             if tank == '<':
                 i = 1
+
                 while True:
-                    if map[tPos[0]][tPos[1]-i] == '*': # 벽돌
-                        map[tPos[0]][tPos[1]-i] = '.'
-                        break
-                    elif i < 0:
+                    if tPos[1] - i >= 0:
+                        if _map[tPos[0]][tPos[1]-i] == '*': # 벽돌
+                            _map[tPos[0]][tPos[1]-i] = '.'
+                            break
+                        elif _map[tPos[0]][tPos[1]-i] == '#':  # 강철
+                            break
+                    elif tPos[1]-i < 0:
                         break
                     else:
-                        i += 1
+                        break
+                    i += 1
                         
-            if tank == '^':
-                i = len(map)
+            elif tank == '^':
+                i = 1
                 while True:
-                    if map[tPos[0]-i][tPos[1]] == '*': # 벽돌
-                        map[tPos[0]-i][tPos[1]] = '.'
-                        break
-                    elif i < 0:
+                    if tPos[0] - i >= 0:
+                        if _map[tPos[0]-i][tPos[1]] == '*': # 벽돌
+                            _map[tPos[0]-i][tPos[1]] = '.'
+                            break
+                        elif _map[tPos[0]-i][tPos[1]] == '#':  # 강철
+                            break
+                    elif tPos[0]-i < 0:
                         break
                     else:
-                        i += 1
+                        break
+                    i += 1
 
+            elif tank == 'v':
+                i = 1
+                while True:
+                    if tPos[0] + i < H:
+                        if _map[tPos[0]+i][tPos[1]] == '*': # 벽돌
+                            _map[tPos[0]+i][tPos[1]] = '.'
+                            break
+                        elif _map[tPos[0]+i][tPos[1]] == '#':  # 강철
+                            break
+                    elif tPos[0]+i > H:
+                        break
+                    else:
+                        break
+                    i += 1
 
+            elif tank == '>':
+                i = 1
+                while True:
+                    if tPos[1] + i < W:
+                        if _map[tPos[0]][tPos[1]+i] == '*': # 벽돌
+                            _map[tPos[0]][tPos[1]+i] = '.'
+                            break
+                        elif _map[tPos[0]][tPos[1]+i] == '#':  # 강철
+                            break
+                    elif tPos[1]+i > W:
+                        break
+                    else:
+                        break
+                    i += 1
+
+        elif cmd == 'U':
+            _map[tPos[0]][tPos[1]] = '^'
+            if tPos[0]-1 >= 0:
+                if _map[tPos[0]-1][tPos[1]] == '.':
+                    _map[tPos[0]-1][tPos[1]] = '^'
+                    _map[tPos[0]][tPos[1]] = '.'
+                else:
+                    continue
+        
+        elif cmd == 'D':
+            _map[tPos[0]][tPos[1]] = 'v'
+            if tPos[0]+1 < H:
+                if _map[tPos[0]+1][tPos[1]] == '.':
+                    _map[tPos[0]+1][tPos[1]] = 'v'
+                    _map[tPos[0]][tPos[1]] = '.'
+                else:
+                    continue
+
+        elif cmd == 'L':
+            _map[tPos[0]][tPos[1]] = '<'
+            if tPos[1]-1 >= 0:
+                if _map[tPos[0]][tPos[1]-1] == '.':
+                    _map[tPos[0]][tPos[1]-1] = '<'
+                    _map[tPos[0]][tPos[1]] = '.'
+                else:
+                    continue
+
+        elif cmd == 'R':
+            _map[tPos[0]][tPos[1]] = '>'
+            if tPos[1]+1 < W:
+                if _map[tPos[0]][tPos[1]+1] == '.':
+                    _map[tPos[0]][tPos[1]+1] = '>'
+                    _map[tPos[0]][tPos[1]] = '.'
+                else:
+                    continue
+
+    print('#{}'.format(t+1), end=' ')
+    for i in _map:
+        for j in i:
+            print(j, end='')
+        print()
