@@ -5,7 +5,7 @@
 
 # for t in range(T):
 #     N, M = map(int, input().split())
-#     bin = list(format(M, 'b'))[-N:]
+#     bin = list(format(M, 'b'))[-N:] 
 #     if '0' in bin:
 #         print('#{} {}'.format(t+1, 'OFF'))
 #     else:

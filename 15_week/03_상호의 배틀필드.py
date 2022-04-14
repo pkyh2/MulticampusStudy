@@ -23,31 +23,34 @@ for t in range(T):
     H, W = map(int, input().split())
     _map = []*H
     for i in range(H):
+        # 맵 입력
         _map.append(list(input()))
     commandLen = int(input())
     command = input()
 
+    # 명령어 실행
     for cmd in command:
-
+        # 탱크 위치 찾기
         for i in range(len(_map)):
             for j in range(len(_map[i])):
                 if _map[i][j] in ['^', 'v', '<', '>']:
                     tPos = (i, j)
                     tank = _map[i][j]
 
+        # 미사일 발사
         if cmd == 'S':
             if tank == '<':
                 i = 1
 
                 while True:
+                    # x축 인덱스가
                     if tPos[1] - i >= 0:
+                        # _map[tPos[0]][tPos[1]] 탱크위치
                         if _map[tPos[0]][tPos[1]-i] == '*': # 벽돌
                             _map[tPos[0]][tPos[1]-i] = '.'
                             break
                         elif _map[tPos[0]][tPos[1]-i] == '#':  # 강철
                             break
-                    elif tPos[1]-i < 0:
-                        break
                     else:
                         break
                     i += 1
@@ -61,8 +64,6 @@ for t in range(T):
                             break
                         elif _map[tPos[0]-i][tPos[1]] == '#':  # 강철
                             break
-                    elif tPos[0]-i < 0:
-                        break
                     else:
                         break
                     i += 1
@@ -76,8 +77,6 @@ for t in range(T):
                             break
                         elif _map[tPos[0]+i][tPos[1]] == '#':  # 강철
                             break
-                    elif tPos[0]+i > H:
-                        break
                     else:
                         break
                     i += 1
@@ -91,8 +90,6 @@ for t in range(T):
                             break
                         elif _map[tPos[0]][tPos[1]+i] == '#':  # 강철
                             break
-                    elif tPos[1]+i > W:
-                        break
                     else:
                         break
                     i += 1
